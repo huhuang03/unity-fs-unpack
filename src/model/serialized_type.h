@@ -10,7 +10,6 @@ class SerializedType {
   int classId_;
   bool strippedType_;
   int scriptTypeIndex_;
-
 };
 
 #endif //UNITY_FS_UNPACK_SRC_MODEL_SERIALIZED_TYPE_H_

@@ -4,14 +4,13 @@
 
 #include <string>
 #include <reader_util/reader_util.h>
+#include "./unity_file.h"
 
 void unpackSingleFile(const std::string& path, const std::string& outFolder) {
   reader_util::FileReader reader(path, reader_util::BIG);
-  auto metaSize = reader.readUInt32();
-  auto fileSize = reader.readUInt32();
-  auto version = reader.readUInt32();
-  auto dataOffset = reader.readUInt32();
-  printf("metaSize: %d, fileSize: %d, version: %d, dataOffset: %d", metaSize, fileSize, version, dataOffset);
+  UnityFile unity_file(&reader);
+  printf("unity version: %s\n", unity_file.getUnityVersion().c_str());
+  printf("typeCount: %d", unity_file.getTypeCount());
 }
 
 int main(int argc, char** argv) {

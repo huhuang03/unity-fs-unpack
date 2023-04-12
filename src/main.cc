@@ -6,8 +6,7 @@
 #include <reader_util/reader_util.h>
 
 void unpackSingleFile(const std::string& path, const std::string& outFolder) {
-  printf("path: %s\n", path.c_str());
-  reader_util::FileReader reader(path);
+  reader_util::FileReader reader(path, reader_util::BIG);
   auto metaSize = reader.readUInt32();
   auto fileSize = reader.readUInt32();
   auto version = reader.readUInt32();

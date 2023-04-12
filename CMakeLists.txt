@@ -5,4 +5,5 @@ project(unity-fs-unpack)
 add_executable(${PROJECT_NAME} src/main.cc)
 
 add_subdirectory(thirdpart/reader-util/src/)
-target_link_libraries(${PROJECT_NAME} reader-util)
+
+target_link_libraries(unity-fs-unpack reader-util)

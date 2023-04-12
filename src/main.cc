@@ -3,11 +3,20 @@
 //
 
 #include <string>
+#include <reader_util/reader_util.h>
 
-void unpackSingleFile(const std::string& path) {
-  
+void unpackSingleFile(const std::string& path, const std::string& outFolder) {
+  reader_util::FileReader reader(path);
+  // 这么做？
 }
 
-int main() {
+int main(int argc, char** argv) {
+  if (argc < 3) {
+    printf("Usage: %s file_or_folder dist", argv[0]);
+    return -1;
+  }
+
+  const char* src = argv[1];
+  const char* out = argv[2];
 
 }

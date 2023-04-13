@@ -15,8 +15,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(unity14_test unity14_test.cc)
-target_link_libraries(unity14_test  GTest::gtest_main)
+find_package(Boost REQUIRED COMPONENTS filesystem)
+target_link_libraries(unity14_test  GTest::gtest_main unity-fs-unpack-lib Boost::filesystem reader-util)
 include(GoogleTest)
 gtest_discover_tests(unity14_test)
-
-message("Hello")

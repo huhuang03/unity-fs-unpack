@@ -24,7 +24,6 @@ UnityFile::UnityFile(reader_util::FileReader *file_reader): file_reader_(file_re
   enableTypeTree_ = file_reader_->readByte() != 0;
 
   typeCount_ = file_reader_->readUInt32();
-
 }
 
 std::string UnityFile::getUnityVersion() {

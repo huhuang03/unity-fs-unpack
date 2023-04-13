@@ -5,7 +5,7 @@
 #ifndef UNITY_FS_UNPACK_SRC_OBJECT_INFO_H_
 #define UNITY_FS_UNPACK_SRC_OBJECT_INFO_H_
 
-#include "./core/i_parseable.h"
+#include "../include/unity_fs_unpack/core/i_parseable.h"
 
 class ObjectInfo: public IParseable {
  public:

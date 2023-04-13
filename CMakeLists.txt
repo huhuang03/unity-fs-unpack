@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(${PROJECT_NAME}
         src/main.cc
-        src/i_unity_file.h src/unity_file.cc src/unity_file.h src/model/serialized_type.cc src/model/serialized_type.h src/model/type_tree_node.cc src/model/type_tree_node.h src/core/i_parseable.h)
+        src/i_unity_file.h src/unity_file.cc src/unity_file.h src/model/serialized_type.cc src/model/serialized_type.h src/model/type_tree_node.cc src/model/type_tree_node.h src/core/i_parseable.h src/object_info.cc src/object_info.h)
 
 add_subdirectory(thirdpart/reader-util/src/)
 

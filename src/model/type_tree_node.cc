@@ -16,7 +16,9 @@ void TypeTreeNode::parse(reader_util::FileReader &file_reader) {
   this->metaFlag_ = file_reader.readUInt32();
   this->childCount_ = file_reader.readUInt32();
   for (int i = 0; i < this->childCount_; ++i) {
-//    this->children.push_back()
+    TypeTreeNode node(level_ + 1);
+    node.parse(file_reader);
+    this->children.push_back(node);
   }
 }
 

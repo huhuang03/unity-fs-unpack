@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12.0)
+cmake_minimum_required(VERSION 3.14.0)
 
 if (WIN32)
     set(CMAKE_TOOLCHAIN_FILE $ENV{vcpkg_root}/scripts/buildsystems/vcpkg.cmake)
@@ -8,10 +8,16 @@ project(unity-fs-unpack)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(${PROJECT_NAME}
-        src/main.cc
-        src/i_unity_file.h src/unity_file.cc src/unity_file.h src/model/serialized_type.cc src/model/serialized_type.h src/model/type_tree_node.cc src/model/type_tree_node.h src/core/i_parseable.h src/object_info.cc src/object_info.h)
+file(GLOB_RECURSE unity-fs-unpack-lib-src src/* ${CMAKE_CURRENT_SOURCE_DIR}/include/*)
+list(FILTER unity-fs-unpack-lib-src EXCLUDE REGEX ".*main.cc$")
+
+add_library(unity-fs-unpack-src-lib ${unity-fs-unpack-lib-src})
+add_executable(${PROJECT_NAME} ${unity-fs-unpack-lib-src} src/main.cc)
+
+target_include_directories(unity-fs-unpack-src-lib INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_subdirectory(thirdpart/reader-util/src/)
 
 target_link_libraries(unity-fs-unpack reader-util)
+
+add_subdirectory(test)

@@ -2,7 +2,7 @@
 // Created by huhua on 2023/4/12.
 //
 
-#include "unity_file.h"
+#include "../include/unity_fs_unpack/unity_file.h"
 
 UnityFile::UnityFile(reader_util::FileReader *file_reader): file_reader_(file_reader) {
   metaSize_ = file_reader_->readUInt32();

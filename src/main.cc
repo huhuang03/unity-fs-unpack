@@ -4,7 +4,7 @@
 
 #include <string>
 #include <reader_util/reader_util.h>
-#include "./unity_file.h"
+#include "../include/unity_fs_unpack/unity_file.h"
 
 void unpackSingleFile(const std::string& path, const std::string& outFolder) {
   reader_util::FileReader reader(path, reader_util::BIG);

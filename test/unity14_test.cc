@@ -6,6 +6,7 @@
 #include <boost/filesystem.hpp>
 #include <unity_fs_unpack/unity_fs_unpack.h>
 #include <reader_util/reader_util.h>
+#include <iostream>
 
 namespace fs = boost::filesystem;
 
@@ -17,8 +18,14 @@ TEST(test14, BasicAssertions) {
   ASSERT_EQ(unityFile.getUnityVersion(), "2018.4.30f1");
   ASSERT_EQ(unityFile.getTargetPlatform(), Android);
   ASSERT_EQ(unityFile.getVersion(), 17);
-  printf("typeCount: %d\n", unityFile.getTypeCount());
-  printf("version: %d\n", unityFile.getVersion());
-  printf("objectCount: %d", unityFile.getObjectCount());
-//  printf("objectCount: %d", unityFile.getObjectCount());
+  auto types = unityFile.getSerializedTypes();
+
+  for (auto it = types.begin(); it != types.end(); ++it) {
+    std::cout << *it << " ";
+  }
+//  std::cout << "type: " << types << std::endl;
+//  printf("typeCount: %d\n", unityFile.getTypeCount());
+//  printf("version: %d\n", unityFile.getVersion());
+  printf("objectCount: %d\n", unityFile.getObjectCount());
+//  printf("enableTypeTree: %d", unityFile.isEnableTypeTree());
 }

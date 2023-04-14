@@ -5,9 +5,11 @@
 #ifndef UNITY_FS_UNPACK_SRC_UNITY_FILE_H_
 #define UNITY_FS_UNPACK_SRC_UNITY_FILE_H_
 
+#include <vector>
 #include "./i_unity_file.h"
 #include "./core/i_parseable.h"
 #include "./core/target_platform.h"
+#include "./model/serialized_type.h"
 
 #include <reader_util/reader_util.h>
 
@@ -24,7 +26,13 @@ class UnityFile: public IUnityFile, public IParseable {
   std::string getUnityVersion();
   int getEndian() override;
   int getObjectCount() override;
-  int getTypeCount();
+  int getTypeCount() override;
+  /**
+   * I don't know what's this
+   * @return
+   */
+  bool isEnableTypeTree();
+  std::vector<SerializedType> getSerializedTypes();
 
  private:
   uint32_t metaSize_ = 0;
@@ -44,6 +52,7 @@ class UnityFile: public IUnityFile, public IParseable {
    * 文件个数
    */
   int objectCount_ = 0;
+  std::vector<SerializedType> serializedTypes_;
   reader_util::FileReader* file_reader_ = nullptr;
 };
 

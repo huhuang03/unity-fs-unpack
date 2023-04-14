@@ -20,6 +20,11 @@ class IUnityFile {
    * Get version of this file
    */
   virtual int getVersion() = 0;
+
+  /**
+   * For now, I don't know what's the type count mean.
+   */
+  virtual int getTypeCount() = 0;
 };
 
 #endif //UNITY_FS_UNPACK_SRC_I_UNITY_FILE_H_

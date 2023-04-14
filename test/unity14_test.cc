@@ -17,6 +17,7 @@ TEST(test14, BasicAssertions) {
   ASSERT_EQ(unityFile.getUnityVersion(), "2018.4.30f1");
   ASSERT_EQ(unityFile.getTargetPlatform(), Android);
   ASSERT_EQ(unityFile.getVersion(), 17);
+  printf("typeCount: %d\n", unityFile.getTypeCount());
   printf("version: %d\n", unityFile.getVersion());
   printf("objectCount: %d", unityFile.getObjectCount());
 //  printf("objectCount: %d", unityFile.getObjectCount());

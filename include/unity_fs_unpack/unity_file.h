@@ -24,7 +24,7 @@ class UnityFile: public IUnityFile, public IParseable {
   std::string getUnityVersion();
   int getEndian() override;
   int getObjectCount() override;
-  uint32_t getTypeCount();
+  int getTypeCount();
 
  private:
   uint32_t metaSize_ = 0;

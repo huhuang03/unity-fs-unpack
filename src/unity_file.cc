@@ -49,7 +49,7 @@ int UnityFile::getObjectCount() {
   return objectCount_;
 }
 
-uint32_t UnityFile::getTypeCount() {
+int UnityFile::getTypeCount() {
   return this->typeCount_;
 }
 

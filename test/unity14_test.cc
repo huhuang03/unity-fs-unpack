@@ -18,6 +18,7 @@ TEST(test14, BasicAssertions) {
   ASSERT_EQ(unityFile.getUnityVersion(), "2018.4.30f1");
   ASSERT_EQ(unityFile.getTargetPlatform(), Android);
   ASSERT_EQ(unityFile.getVersion(), 17);
+  ASSERT_EQ(unityFile.getObjectCount(), 1);
   auto types = unityFile.getSerializedTypes();
 
   for (auto it = types.begin(); it != types.end(); ++it) {

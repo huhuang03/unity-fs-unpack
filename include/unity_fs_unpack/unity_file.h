@@ -10,6 +10,7 @@
 #include "./core/i_parseable.h"
 #include "./core/target_platform.h"
 #include "./model/serialized_type.h"
+#include "./model/object.h"
 
 #include <reader_util/reader_util.h>
 
@@ -33,6 +34,7 @@ class UnityFile: public IUnityFile, public IParseable {
    */
   bool isEnableTypeTree();
   std::vector<SerializedType> getSerializedTypes();
+  std::vector<Object> objects();
 
  private:
   uint32_t metaSize_ = 0;
@@ -53,6 +55,7 @@ class UnityFile: public IUnityFile, public IParseable {
    */
   int objectCount_ = 0;
   std::vector<SerializedType> serializedTypes_;
+  std::vector<Object> objects_;
   reader_util::FileReader* file_reader_ = nullptr;
 };
 

@@ -39,6 +39,13 @@ void UnityFile::parse(reader_util::FileReader &file_reader) {
   }
 
   objectCount_ = (int)file_reader_->readUInt32();
+  file_reader.align(4);
+
+  for (int i = 0; i < objectCount_; ++i) {
+    Object obj;
+    obj.parse(file_reader);
+    objects_.push_back(obj);
+  }
 }
 
 std::string UnityFile::getUnityVersion() {
@@ -71,4 +78,7 @@ bool UnityFile::isEnableTypeTree() {
 
 std::vector<SerializedType> UnityFile::getSerializedTypes() {
   return this->serializedTypes_;
+}
+std::vector<Object> UnityFile::objects() {
+  return this->objects_;
 }

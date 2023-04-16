@@ -19,11 +19,17 @@ TEST(test14, BasicAssertions) {
   ASSERT_EQ(unityFile.getTargetPlatform(), Android);
   ASSERT_EQ(unityFile.getVersion(), 17);
   ASSERT_EQ(unityFile.getObjectCount(), 1);
-  auto types = unityFile.getSerializedTypes();
+//  auto types = unityFile.getSerializedTypes();
+//
+//  for (auto it = types.begin(); it != types.end(); ++it) {
+//    std::cout << *it << " ";
+//  }
 
-  for (auto it = types.begin(); it != types.end(); ++it) {
-    std::cout << *it << " ";
+  for (const auto &item : unityFile.objects()) {
+    std::cout << item << std::endl;
   }
+
+//  auto objects = unityFile.
 //  std::cout << "type: " << types << std::endl;
 //  printf("typeCount: %d\n", unityFile.getTypeCount());
 //  printf("version: %d\n", unityFile.getVersion());
